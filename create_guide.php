@@ -22,16 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Insert the new guide into the database
         $stmt = $pdo->prepare("INSERT INTO guides (title, content, user_id) VALUES (?, ?, ?)");
         if ($stmt->execute([$title, $content, $user_id])) {
-            // Redirect to the same page to prevent the form from being resubmitted
-            header('Location: ' . $_SERVER['PHP_SELF']);
+            // Redirect to the dashboard after successful guide creation
+            header('Location: view_guides.php');  // Replace 'dashboard.php' with your actual dashboard URL
             exit(); // Ensure no further code is executed after the redirect
         } else {
             $error = "Failed to create the guide. Please try again.";
         }
     }
 }
-
-
 ?>
 
 <!DOCTYPE html>

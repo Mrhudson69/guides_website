@@ -7,10 +7,10 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guides Website</title>
+    <title>FlowBit</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f4f4;
             color: #333;
             margin: 0;
@@ -71,33 +71,43 @@ session_start();
             bottom: 0;
             width: 100%;
         }
+
+        .header_buttons{
+            color: white;
+            border: 1px solid white;
+            padding: 4px 9px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Welcome to the Guides Website</h1>
-</header>
-
-<nav>
+    <h1>Welcome to the FlowBit</h1>
+    <nav>
     <?php if (isset($_SESSION['user_id'])): ?>
-        <!-- If the user is logged in, show the guides section and logout link -->
-        <a href="logout.php">Logout</a>
-        <a href="guides.php">My Guides</a>
+        <!-- If the user is logged in, show the guides section, logout link, and profile link -->
+        <a class="header_buttons" href="logout.php">Logout</a>
+        <!-- <a href="guides.php">My Guides</a> -->
+        <a class="header_buttons" href="profile.php">My Profile</a>  <!-- Add My Profile link -->
+        <a class="header_buttons" href="view_guides.php">All Guides</a> <!-- Add All Guides link -->
     <?php else: ?>
         <!-- If the user is not logged in, show login and register links -->
         <a href="login.php">Login</a>
         <a href="register.php">Register</a>
     <?php endif; ?>
 </nav>
+</header>
+
+
 
 <div class="container">
     <div class="welcome-message">
         <?php if (isset($_SESSION['user_id'])): ?>
-            <p>Hello, <?php echo $_SESSION['username']; ?>! Welcome back to the Guides Website.</p>
-            <p>You are logged in.</p>
+            <p>Hello, <?php echo $_SESSION['username']; ?>! Welcome back to the FlowBit.</p>
+            <p>You are logged in</p>
         <?php else: ?>
-            <p>Welcome to the Guides Website. Please log in to access the guides or create an account to get started!</p>
+            <p>Welcome to the FlowBit. Please log in to access the guides or create an account to get started!</p>
         <?php endif; ?>
     </div>
 
@@ -111,7 +121,7 @@ session_start();
         <?php endif; ?>
 
         <!-- Display a link to view guides -->
-        <a href="view_guides.php">View All Guides</a>
+        <a href="view_guides.php">Explore Guides</a>
     </div>
 </div>
 
