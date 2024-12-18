@@ -8,29 +8,32 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlowBit</title>
+    <link rel="icon" type="image/png" href="./static-images/icon.png">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #393E46;
+            color: white;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #4CAF50;
+            background-color: #222831;
             color: white;
-            text-align: center;
-            padding: 10px 0;
+            text-align: left;
+            padding: 1em 1em;
         }
 
         nav {
-            text-align: center;
+            text-align: right;
             margin: 20px 0;
+            z-index: +2;
+            margin-top: -3em;
         }
 
         nav a {
-            color: #4CAF50;
+            color:rgb(255, 255, 255);
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
@@ -56,7 +59,7 @@ session_start();
             display: inline-block;
             margin: 20px;
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: #222831;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -64,7 +67,7 @@ session_start();
 
         footer {
             text-align: center;
-            background-color: #4CAF50;
+            background-color: #222831;
             color: white;
             padding: 10px 0;
             position: fixed;
@@ -74,10 +77,28 @@ session_start();
 
         .header_buttons{
             color: white;
-            border: 1px solid white;
             padding: 4px 9px;
             border-radius: 5px;
         }
+        .button hover{
+            color: white;
+            background: #00ADB5;
+        }
+
+        .button {
+    color: black;
+    background: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in, color 0.3s ease-in; /* Smooth transition */
+}
+
+.button:hover {
+    color: white;
+    background: #00ADB5;
+}
+
     </style>
 </head>
 <body>
@@ -93,8 +114,8 @@ session_start();
         <a class="header_buttons" href="view_guides.php">All Guides</a> <!-- Add All Guides link -->
     <?php else: ?>
         <!-- If the user is not logged in, show login and register links -->
-        <a href="login.php">Login</a>
-        <a href="register.php">Register</a>
+        <a class="header_buttons" href="login.php">Login</a>
+        <a class="header_buttons" href="register.php">Register</a>
     <?php endif; ?>
 </nav>
 </header>
@@ -121,7 +142,7 @@ session_start();
         <?php endif; ?>
 
         <!-- Display a link to view guides -->
-        <a href="view_guides.php">Explore Guides</a>
+        <a class="button" href="view_guides.php">Explore Guides</a>
     </div>
 </div>
 
